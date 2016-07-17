@@ -47,3 +47,5 @@ module RSpec
     end
   end
 end
+
+require 'rspec/command/matchers'
