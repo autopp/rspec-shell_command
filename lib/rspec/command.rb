@@ -1,7 +1,7 @@
 require 'rspec/command/version'
 require 'open3'
 
-module Rspec
+module RSpec
   # Wrapper of external command
   #
   # @author atanimur <atanimur@yahoo-corp.jp>

@@ -5,7 +5,7 @@ require 'rspec/command/version'
 
 Gem::Specification.new do |spec|
   spec.name = 'rspec-command'
-  spec.version = Rspec::Command::VERSION
+  spec.version = RSpec::Command::VERSION
   spec.authors = ['autopp']
   spec.email = ['autopp.inc@gmail.com']
 

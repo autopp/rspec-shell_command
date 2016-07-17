@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'open3'
 require 'fileutils'
 
-describe Rspec::Command do
+describe RSpec::Command do
   shared_context 'command is "echo hoge >>tmp.txt"',
                  command: 'echo hoge >>tmp.txt' do
     let(:tmp_file) { 'tmp.txt' }
