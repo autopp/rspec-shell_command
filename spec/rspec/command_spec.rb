@@ -7,6 +7,10 @@ describe Rspec::Command do
   end
 
   describe '#execute' do
+    it 'returns self' do
+      expect(echo_command.execute).to eq(echo_command)
+    end
+
     it 'executes given command only once' do
       expect(Open3).to receive(:capture3).once
       command = Rspec::Command.new('date +"%s"')
@@ -18,6 +22,10 @@ describe Rspec::Command do
   end
 
   describe '#execute!' do
+    it 'returns self' do
+      expect(echo_command.execute).to eq(echo_command)
+    end
+
     it 'executes given command each called' do
       expect(Open3).to receive(:capture3).twice
       command = Rspec::Command.new('date +"%s"')
