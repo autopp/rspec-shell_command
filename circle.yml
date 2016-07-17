@@ -1,6 +1,11 @@
 dependencies:
   pre:
     - gem install bundler
+
+test:
+  post:
+    - bundle exec -D rubocop
+
 deployment:
   rubygems:
     branch: master
