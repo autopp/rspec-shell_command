@@ -4,7 +4,7 @@ dependencies:
 
 test:
   post:
-    - bundle exec -D rubocop
+    - bundle exec rubocop -D
 
 deployment:
   rubygems:
