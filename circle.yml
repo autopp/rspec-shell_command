@@ -1,0 +1,8 @@
+dependencies:
+  pre:
+    - gem install bundler
+deployment:
+  rubygems:
+    branch: master
+    commands:
+      - bundle exec rake release
