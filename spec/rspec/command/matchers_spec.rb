@@ -7,5 +7,11 @@ describe RSpec::Command::Matchers do
         expect(success).to be_a(RSpec::Command::Matchers::Success)
       end
     end
+
+    describe '#exit_with' do
+      it 'returns Matchers::ExitWith' do
+        expect(exit_with(0)).to be_a(RSpec::Command::Matchers::ExitWith)
+      end
+    end
   end
 end
