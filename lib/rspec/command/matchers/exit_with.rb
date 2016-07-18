@@ -19,6 +19,20 @@ module RSpec
           actual_status = actual.status
           actual_status.exitstatus == @status
         end
+
+        def failure_message
+          make_expected_and_got_message(
+            "exited with status #{@status}",
+            actual_status_message
+          )
+        end
+
+        def failure_message_when_negated
+          make_expected_and_got_message(
+            "not exited with status #{@status}",
+            actual_status_message
+          )
+        end
       end
     end
   end
