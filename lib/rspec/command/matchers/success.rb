@@ -5,7 +5,7 @@ module RSpec
       #
       # Check whether given command successed
       #
-      # @author atanimur <atanimur@yahoo-corp.jp>
+      # @author autopp <autopp@gmail.com>
       #
       class Success
         def matches?(actual)

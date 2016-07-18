@@ -4,7 +4,7 @@ describe 'exit_with matcher' do
   include RSpec::Command::Matchers
 
   context 'when expected status is not Integer' do
-    it 'raises error' do
+    it 'raises TypeError' do
       expect { exit_with('0') }.to raise_error(TypeError)
     end
   end
