@@ -14,6 +14,11 @@ module RSpec
           end
           @status = status
         end
+
+        def matches?(actual)
+          actual_status = actual.execute.status
+          actual_status.exitstatus == @status
+        end
       end
     end
   end
