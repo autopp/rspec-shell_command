@@ -16,5 +16,6 @@ module RSpec
   end
 end
 
+require 'rspec/command/matchers/base'
 require 'rspec/command/matchers/success'
 require 'rspec/command/matchers/exit_with'
