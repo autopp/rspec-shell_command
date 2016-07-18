@@ -4,7 +4,7 @@ require 'open3'
 module RSpec
   # Wrapper of external command
   #
-  # @author atanimur <atanimur@yahoo-corp.jp>
+  # @author autopp <autopp@gmail.com>
   #
   class Command
     # @!attribute [r] stdout
