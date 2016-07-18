@@ -25,6 +25,11 @@ describe RSpec::Command::Matchers::Base do
         expect(matcher.matches?(command)).to eq(true)
       end
 
+      it 'execute given command' do
+        matcher.matches?(command)
+        expect(command).to be_executed
+      end
+
       it 'stores given argument to @actual' do
         matcher.matches?(command)
         expect(matcher.instance_variable_get(:@actual)).to eq(command)

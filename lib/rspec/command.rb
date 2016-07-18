@@ -40,8 +40,6 @@ module RSpec
       self
     end
 
-    private
-
     def executed?
       !@status.nil?
     end
