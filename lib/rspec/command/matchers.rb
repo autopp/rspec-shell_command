@@ -8,8 +8,13 @@ module RSpec
       def success
         Success.new
       end
+
+      def exit_with(status)
+        ExitWith.new(status)
+      end
     end
   end
 end
 
 require 'rspec/command/matchers/success'
+require 'rspec/command/matchers/exit_with'
