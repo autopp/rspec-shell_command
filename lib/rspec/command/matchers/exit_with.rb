@@ -10,7 +10,7 @@ module RSpec
       class ExitWith
         def initialize(status)
           unless status.is_a?(Integer)
-            raise TypeError "expected Integer, but got #{status.inspect}"
+            raise TypeError, "expected Integer, but got #{status.inspect}"
           end
           @status = status
         end
