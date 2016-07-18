@@ -7,9 +7,9 @@ module RSpec
       #
       # @author autopp <autopp@gmail.com>
       #
-      class Success
-        def matches?(actual)
-          actual.execute.status.success?
+      class Success < Base
+        def perform_match(actual)
+          actual.status.success?
         end
       end
     end

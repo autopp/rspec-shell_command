@@ -7,7 +7,7 @@ module RSpec
       #
       # @author autopp <autopp@gmail.com>
       #
-      class ExitWith
+      class ExitWith < Base
         def initialize(status)
           unless status.is_a?(Integer)
             raise TypeError, "expected Integer, but got #{status.inspect}"
@@ -15,8 +15,8 @@ module RSpec
           @status = status
         end
 
-        def matches?(actual)
-          actual_status = actual.execute.status
+        def perform_match(actual)
+          actual_status = actual.status
           actual_status.exitstatus == @status
         end
       end
