@@ -10,4 +10,6 @@ deployment:
   rubygems:
     branch: master
     commands:
+      - git config --local user.name "autopp"
+      - git config --local user.email "autopp@gmail.com"
       - bundle exec rake release
