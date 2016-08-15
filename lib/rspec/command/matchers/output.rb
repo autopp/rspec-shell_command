@@ -9,11 +9,9 @@ module RSpec
       # @author autopp <autopp@gmail.com>
       #
       class Output < Base
+        include RSpec::Matchers::Composable
+
         def initialize(expected, orig)
-          unless expected.is_a?(String) || expected.is_a?(Regexp)
-            msg = "expected a String or Regexp, but got #{expected.inspect}"
-            raise TypeError, msg
-          end
           @expected = expected
           @orig = orig
         end
@@ -26,12 +24,7 @@ module RSpec
 
           return false unless @stream == :stdout || @stream == :stderr
 
-          case @expected
-          when String
-            @expected == actual_output
-          when Regexp
-            @expected =~ actual_output
-          end
+          values_match?(@expected, actual_output)
         end
 
         def failure_message

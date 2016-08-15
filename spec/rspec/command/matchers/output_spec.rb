@@ -16,12 +16,6 @@ describe 'output matcher' do
         end
       end
 
-      context 'and when expected is neither String nor Regexp' do
-        it 'raises TypeError' do
-          expect { output(Object.new) }.to raise_error(TypeError)
-        end
-      end
-
       context 'and when expected stderr is "goodby\n"' do
         it 'matches' do
           expect(command).to output("goodby\n").to_stderr
@@ -37,6 +31,18 @@ describe 'output matcher' do
       context 'and when expected stderr is /odb/' do
         it 'matches' do
           expect(command).to output(/odb/).to_stderr
+        end
+      end
+
+      context 'and when expected stdout is a starting with "hel"' do
+        it 'matches' do
+          expect(command).to output(a_string_starting_with('hel')).to_stdout
+        end
+      end
+
+      context 'and when expected stderr is a starting with "goo"' do
+        it 'matches' do
+          expect(command).to output(a_string_starting_with('goo')).to_stderr
         end
       end
 
@@ -61,6 +67,18 @@ describe 'output matcher' do
       context 'and when expected stderr is /ell/' do
         it 'dose not match' do
           expect(command).not_to output(/ell/).to_stderr
+        end
+      end
+
+      context 'and when expected stdout is a starting with "goo"' do
+        it 'dose not match' do
+          expect(command).not_to output(a_string_starting_with('goo')).to_stdout
+        end
+      end
+
+      context 'and when expected stderr is a starting with "hel"' do
+        it 'dose not match' do
+          expect(command).not_to output(a_string_starting_with('hel')).to_stderr
         end
       end
 
