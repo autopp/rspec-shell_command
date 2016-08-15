@@ -24,7 +24,7 @@ Or install it yourself as:
 ```ruby
 require 'rspec/command'
 
-describe 'echo hello; echo goodby >&2' do
+describe '`echo hello; echo goodby >&2`' do
   # Enables DSL
   include RSpec::Command::DSL
 
@@ -45,7 +45,7 @@ describe 'echo hello; echo goodby >&2' do
   end
 
   # Check the output of the standard error by Regexp
-  it 'output "goodby\n" to stderr' do
+  it 'output "/^good/" to stderr' do
     expect(`echo hello; echo goodby >&2`).to output(/^good/).to_stderr
   end
 end
