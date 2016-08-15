@@ -5,7 +5,7 @@ module RSpec
       #
       # NOTE: This is a internal class
       #
-      # @author atanimur <atanimur@yahoo-corp.jp>
+      # @author autopp <autopp@gmail.com>
       #
       class Base
         def matches?(actual)
