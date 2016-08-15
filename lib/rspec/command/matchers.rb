@@ -12,6 +12,12 @@ module RSpec
       def exit_with(status)
         ExitWith.new(status)
       end
+
+      def output(*args, &block)
+        orig = super
+        expected = args.first
+        Output.new(expected, orig)
+      end
     end
   end
 end
@@ -19,3 +25,4 @@ end
 require 'rspec/command/matchers/base'
 require 'rspec/command/matchers/success'
 require 'rspec/command/matchers/exit_with'
+require 'rspec/command/matchers/output'

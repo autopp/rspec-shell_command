@@ -41,7 +41,7 @@ describe 'output matcher' do
       end
 
       context 'and when expected stdout is "goodby\n"' do
-        it 'not dose match' do
+        it 'dose not match' do
           expect(command).not_to output("goodby\n").to_stdout
         end
       end
@@ -63,7 +63,6 @@ describe 'output matcher' do
           expect(command).not_to output(/ell/).to_stderr
         end
       end
-
 
       context 'and matcher dose not chain to any stream' do
         it 'fails' do
