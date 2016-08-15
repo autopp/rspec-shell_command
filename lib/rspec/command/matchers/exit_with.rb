@@ -8,16 +8,15 @@ module RSpec
       # @author autopp <autopp@gmail.com>
       #
       class ExitWith < Base
+        include RSpec::Matchers::Composable
+
         def initialize(status)
-          unless status.is_a?(Integer)
-            raise TypeError, "expected Integer, but got #{status.inspect}"
-          end
           @status = status
         end
 
         def perform_match(actual)
           actual_status = actual.status
-          actual_status.exitstatus == @status
+          values_match?(@status, actual_status.exitstatus)
         end
 
         def failure_message

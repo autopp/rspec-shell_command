@@ -3,12 +3,6 @@ require 'spec_helper'
 describe 'exit_with matcher' do
   include RSpec::Command::Matchers
 
-  context 'when expected status is not Integer' do
-    it 'raises TypeError' do
-      expect { exit_with('0') }.to raise_error(TypeError)
-    end
-  end
-
   context 'when given a "echo hello"' do
     let(:command) { RSpec::Command.new('echo hello') }
 
@@ -21,6 +15,12 @@ describe 'exit_with matcher' do
     context 'and when expected status is 2' do
       it 'dose not match' do
         expect(command).not_to exit_with(2)
+      end
+    end
+
+    context 'and  when expected status is between 1 and 3' do
+      it 'dose not match' do
+        expect(command).not_to exit_with(a_value_between(1, 3))
       end
     end
   end
@@ -37,6 +37,12 @@ describe 'exit_with matcher' do
     context 'and when expected status is 2' do
       it 'dose not match' do
         expect(command).to exit_with(2)
+      end
+    end
+
+    context 'and  when expected status is between 1 and 3' do
+      it 'matches' do
+        expect(command).to exit_with(a_value_between(1, 3))
       end
     end
   end
