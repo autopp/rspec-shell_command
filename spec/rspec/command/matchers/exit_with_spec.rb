@@ -25,8 +25,8 @@ describe 'exit_with matcher' do
     end
   end
 
-  context 'when given a "echo goodby; exit 2"' do
-    let(:command) { RSpec::Command.new('echo goodby; exit 2') }
+  context 'when given a "echo goodbye; exit 2"' do
+    let(:command) { RSpec::Command.new('echo goodbye; exit 2') }
 
     context 'and when expected status is 0' do
       it 'matches' do

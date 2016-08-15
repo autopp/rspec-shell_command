@@ -7,8 +7,8 @@ describe 'output matcher' do
   context 'when RSpec::Command::Matchers is included' do
     include RSpec::Command::Matchers
 
-    context 'and when given a Command "echo hello; echo goodby >&2"' do
-      let(:command) { RSpec::Command.new('echo hello; echo goodby >&2') }
+    context 'and when given a Command "echo hello; echo goodbye >&2"' do
+      let(:command) { RSpec::Command.new('echo hello; echo goodbye >&2') }
 
       context 'and when expected stdout is "hello\n"' do
         it 'matches' do
@@ -16,9 +16,9 @@ describe 'output matcher' do
         end
       end
 
-      context 'and when expected stderr is "goodby\n"' do
+      context 'and when expected stderr is "goodbye\n"' do
         it 'matches' do
-          expect(command).to output("goodby\n").to_stderr
+          expect(command).to output("goodbye\n").to_stderr
         end
       end
 
@@ -46,9 +46,9 @@ describe 'output matcher' do
         end
       end
 
-      context 'and when expected stdout is "goodby\n"' do
+      context 'and when expected stdout is "goodbye\n"' do
         it 'dose not match' do
-          expect(command).not_to output("goodby\n").to_stdout
+          expect(command).not_to output("goodbye\n").to_stdout
         end
       end
 
@@ -92,7 +92,7 @@ describe 'output matcher' do
     context 'and when given block' do
       it 'matches by builtin output matcher' do
         expect { print('hello world') }.to output(/hello/).to_stdout
-        expect { $stderr.print('goodby world') }.to output(/goodby/).to_stderr
+        expect { $stderr.print('goodbye world') }.to output(/goodbye/).to_stderr
       end
     end
   end

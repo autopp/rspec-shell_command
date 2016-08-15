@@ -17,10 +17,10 @@ describe RSpec::Command do
     end
   end
 
-  shared_context 'command is "echo hello; echo goodby >&2; exit 2"',
-                 command: 'echo hello; echo goodby >&2; exit 2' do
+  shared_context 'command is "echo hello; echo goodbye >&2; exit 2"',
+                 command: 'echo hello; echo goodbye >&2; exit 2' do
     let(:command) do
-      described_class.new('echo hello; echo goodby >&2; exit 2')
+      described_class.new('echo hello; echo goodbye >&2; exit 2')
     end
   end
 
@@ -52,7 +52,7 @@ describe RSpec::Command do
     end
   end
 
-  describe '#stdout', command: 'echo hello; echo goodby >&2; exit 2' do
+  describe '#stdout', command: 'echo hello; echo goodbye >&2; exit 2' do
     subject { command.stdout }
 
     context 'when before execution' do
@@ -67,7 +67,7 @@ describe RSpec::Command do
     end
   end
 
-  describe '#stderr', command: 'echo hello; echo goodby >&2; exit 2' do
+  describe '#stderr', command: 'echo hello; echo goodbye >&2; exit 2' do
     subject { command.stderr }
 
     context 'when before execution' do
@@ -77,12 +77,12 @@ describe RSpec::Command do
     context 'when after execution' do
       it 'returns standard error of given command' do
         command.execute
-        expect(subject).to eq("goodby\n")
+        expect(subject).to eq("goodbye\n")
       end
     end
   end
 
-  describe '#status', command: 'echo hello; echo goodby >&2; exit 2' do
+  describe '#status', command: 'echo hello; echo goodbye >&2; exit 2' do
     subject { command.status }
 
     context 'when before execution' do
