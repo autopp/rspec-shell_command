@@ -59,6 +59,10 @@ module RSpec
           self
         end
 
+        def description
+          "output #{description_of(@expected)} to #{@stream}"
+        end
+
         private
 
         def actual_output

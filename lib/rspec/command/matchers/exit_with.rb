@@ -32,6 +32,10 @@ module RSpec
             actual_status_message
           )
         end
+
+        def description
+          "exit with #{description_of(@status)}"
+        end
       end
     end
   end
