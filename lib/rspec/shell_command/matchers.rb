@@ -1,5 +1,5 @@
 module RSpec
-  class Command
+  class ShellCommand
     # Provide matcher methods
     #
     # @author autopp <autopp@gmail.com>
@@ -22,7 +22,7 @@ module RSpec
   end
 end
 
-require 'rspec/command/matchers/base'
-require 'rspec/command/matchers/success'
-require 'rspec/command/matchers/exit_with'
-require 'rspec/command/matchers/output'
+require 'rspec/shell_command/matchers/base'
+require 'rspec/shell_command/matchers/success'
+require 'rspec/shell_command/matchers/exit_with'
+require 'rspec/shell_command/matchers/output'

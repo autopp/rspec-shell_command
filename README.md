@@ -1,5 +1,5 @@
-# rspec-command
-![Build Status](https://circleci.com/gh/autopp/rspec-command.svg?style=shield&circle-token=afa2f781f5b99c17e1a41dc10439a2c94eb9c43d)
+# rspec-shell_command
+![Build Status](https://circleci.com/gh/autopp/rspec-shell_command.svg?style=shield&circle-token=afa2f781f5b99c17e1a41dc10439a2c94eb9c43d)
 
 The RSpec extention for writing a behavior of external command.
 
@@ -8,7 +8,7 @@ The RSpec extention for writing a behavior of external command.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rspec-command'
+gem 'rspec-shell_command'
 ```
 
 And then execute:
@@ -17,16 +17,16 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install rspec-command
+    $ gem install rspec-shell_command
 
 ## Usage
 
 ```ruby
-require 'rspec/command'
+require 'rspec/shell_command'
 
 describe '`echo hello; echo goodbye >&2`' do
   # Enables DSL
-  include RSpec::Command::DSL
+  include RSpec::ShellCommand::DSL
 
   # Check whether success or fail
   it 'successes' do
@@ -52,7 +52,7 @@ end
 
 # Composing matcher is supported!
 describe '`echo hello; echo goodbye >&2; exit 2`' do
-  include RSpec::Command::DSL
+  include RSpec::ShellCommand::DSL
 
   subject { `echo hello; echo goodbye >&2; exit 2` }
 
@@ -67,15 +67,15 @@ describe '`echo hello; echo goodbye >&2; exit 2`' do
 end
 ```
 
-NOTE: When including `RSpec::Command::DSL`, a backquote operator returns a wrapper object of given command, instead of the standard output.
+NOTE: When including `RSpec::ShellCommand::DSL`, a backquote operator returns a wrapper object of given command, instead of the standard output.
 
-If you need to use `RSpec::Command::DSL` at all examples, you can write as bellow at your `spec/spec_helper.rb`:
+If you need to use `RSpec::ShellCommand::DSL` at all examples, you can write as bellow at your `spec/spec_helper.rb`:
 
 ```ruby
-require 'rspec/command'
+require 'rspec/shell_command'
 
 RSpec.configure do |c|
-  c.include RSpec::Command::DSL
+  c.include RSpec::ShellCommand::DSL
 end
 ```
 

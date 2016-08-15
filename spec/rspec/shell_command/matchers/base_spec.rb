@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe RSpec::Command::Matchers::Base do
+describe RSpec::ShellCommand::Matchers::Base do
   let(:matcher) do
-    ::Class.new(RSpec::Command::Matchers::Base) do
+    ::Class.new(RSpec::ShellCommand::Matchers::Base) do
       def perform_match(_actual)
         true
       end
@@ -17,7 +17,7 @@ describe RSpec::Command::Matchers::Base do
     end
 
     context 'with a Command' do
-      let(:command) { RSpec::Command.new('exit 0') }
+      let(:command) { RSpec::ShellCommand.new('exit 0') }
 
       it 'invokes #perform_match with given command and returns its result' do
         expect(matcher).to receive(:perform_match)

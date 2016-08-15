@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'rspec/command/version'
+require 'rspec/shell_command/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'rspec-command'
-  spec.version = RSpec::Command::VERSION
+  spec.name = 'rspec-shell_command'
+  spec.version = RSpec::ShellCommand::VERSION
   spec.authors = ['autopp']
   spec.email = ['autopp.inc@gmail.com']
 
-  spec.summary = 'RSpec extention for describe behavier of external command'
+  spec.summary = 'The RSpec extention for describe behavier of external command'
   spec.description = spec.summary
-  spec.homepage = 'https://github.com/autopp/rspec-command'
+  spec.homepage = 'https://github.com/autopp/rspec-shell_command'
 
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})

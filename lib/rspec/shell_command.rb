@@ -1,4 +1,4 @@
-require 'rspec/command/version'
+require 'rspec/shell_command/version'
 require 'open3'
 
 module RSpec
@@ -6,7 +6,7 @@ module RSpec
   #
   # @author autopp <autopp@gmail.com>
   #
-  class Command
+  class ShellCommand
     # @!attribute [r] stdout
     #   @return [String,nil]
     #     Standard output if given command is already executed, otherwise nil
@@ -46,5 +46,5 @@ module RSpec
   end
 end
 
-require 'rspec/command/matchers'
-require 'rspec/command/dsl'
+require 'rspec/shell_command/matchers'
+require 'rspec/shell_command/dsl'

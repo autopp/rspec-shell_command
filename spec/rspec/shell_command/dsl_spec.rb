@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-describe RSpec::Command::DSL do
-  context 'when RSpec::Command::DSL is included' do
-    include RSpec::Command::DSL
+describe RSpec::ShellCommand::DSL do
+  context 'when RSpec::ShellCommand::DSL is included' do
+    include RSpec::ShellCommand::DSL
 
     describe 'a backquote string' do
       subject { `echo hello` }
-      it 'returns RSpec::Command' do
-        expect(subject).to be_a(RSpec::Command)
+      it 'returns RSpec::ShellCommand' do
+        expect(subject).to be_a(RSpec::ShellCommand)
       end
 
       it 'has not executed yet' do
@@ -28,7 +28,7 @@ describe RSpec::Command::DSL do
     end
   end
 
-  context 'when RSpec::Command::DSL is not included' do
+  context 'when RSpec::ShellCommand::DSL is not included' do
     describe 'a backquote string' do
       it 'returns stdout of given command' do
         expect(`echo hello`).to eq("hello\n")

@@ -1,5 +1,5 @@
 module RSpec
-  class Command
+  class ShellCommand
     module Matchers
       # Provide implementation of exit_with matcher
       #

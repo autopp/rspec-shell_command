@@ -1,5 +1,5 @@
 module RSpec
-  class Command
+  class ShellCommand
     module Matchers
       # Provide implementation of out matcher
       #
@@ -17,7 +17,7 @@ module RSpec
         end
 
         def matches?(actual)
-          @actual_is_command = actual.is_a?(Command)
+          @actual_is_command = actual.is_a?(ShellCommand)
           return @orig.matches?(actual) unless @actual_is_command
 
           @actual = actual.execute

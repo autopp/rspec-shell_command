@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 describe 'exit_with matcher' do
-  include RSpec::Command::Matchers
+  include RSpec::ShellCommand::Matchers
 
   context 'when given a "echo hello"' do
-    let(:command) { RSpec::Command.new('echo hello') }
+    let(:command) { RSpec::ShellCommand.new('echo hello') }
 
     context 'and when expected status is 0' do
       it 'matches' do
@@ -26,7 +26,7 @@ describe 'exit_with matcher' do
   end
 
   context 'when given a "echo goodbye; exit 2"' do
-    let(:command) { RSpec::Command.new('echo goodbye; exit 2') }
+    let(:command) { RSpec::ShellCommand.new('echo goodbye; exit 2') }
 
     context 'and when expected status is 0' do
       it 'matches' do

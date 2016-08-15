@@ -4,11 +4,11 @@ require 'rspec/matchers/fail_matchers'
 describe 'output matcher' do
   include RSpec::Matchers::FailMatchers
 
-  context 'when RSpec::Command::Matchers is included' do
-    include RSpec::Command::Matchers
+  context 'when RSpec::ShellCommand::Matchers is included' do
+    include RSpec::ShellCommand::Matchers
 
     context 'and when given a Command "echo hello; echo goodbye >&2"' do
-      let(:command) { RSpec::Command.new('echo hello; echo goodbye >&2') }
+      let(:command) { RSpec::ShellCommand.new('echo hello; echo goodbye >&2') }
 
       context 'and when expected stdout is "hello\n"' do
         it 'matches' do
@@ -90,7 +90,7 @@ describe 'output matcher' do
     end
 
     context 'and when given a Command "echo hello"' do
-      let(:command) { RSpec::Command.new('echo hello') }
+      let(:command) { RSpec::ShellCommand.new('echo hello') }
 
       context 'and when stdout is expected to output' do
         it 'matches' do
@@ -106,7 +106,7 @@ describe 'output matcher' do
     end
 
     context 'and when given a Command "echo goodbye >&2"' do
-      let(:command) { RSpec::Command.new('echo goodbye >&2') }
+      let(:command) { RSpec::ShellCommand.new('echo goodbye >&2') }
 
       context 'and when stdout is expected to output' do
         it 'dose not match' do
@@ -129,7 +129,7 @@ describe 'output matcher' do
     end
   end
 
-  context 'when RSpec::Command::Matchers is not included' do
+  context 'when RSpec::ShellCommand::Matchers is not included' do
     it 'output matcher is the builtin' do
       expect(output('hello')).to be_a(RSpec::Matchers::BuiltIn::Output)
     end

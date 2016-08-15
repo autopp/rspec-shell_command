@@ -1,5 +1,5 @@
 module RSpec
-  class Command
+  class ShellCommand
     module Matchers
       # Base class for a matcher class
       #
@@ -9,9 +9,9 @@ module RSpec
       #
       class Base
         def matches?(actual)
-          unless actual.is_a?(RSpec::Command)
+          unless actual.is_a?(RSpec::ShellCommand)
             raise TypeError,
-                  "expected RSpec::Command, but got #{actual.inspect}"
+                  "expected RSpec::ShellCommand, but got #{actual.inspect}"
           end
           @actual = actual
           perform_match(actual.execute)
