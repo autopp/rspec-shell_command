@@ -1,4 +1,5 @@
 # rspec-shell_command
+[![Gem Version](https://badge.fury.io/rb/rspec-shell_command.svg)](https://badge.fury.io/rb/rspec-shell_command)
 ![Build Status](https://circleci.com/gh/autopp/rspec-shell_command.svg?style=shield&circle-token=afa2f781f5b99c17e1a41dc10439a2c94eb9c43d)
 
 The RSpec extention for writing a behavior of external command.
