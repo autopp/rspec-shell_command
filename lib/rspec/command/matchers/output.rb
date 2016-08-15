@@ -14,7 +14,7 @@ module RSpec
             msg = "expected a String or Regexp, but got #{expected.inspect}"
             raise TypeError, msg
           end
-          @expected = expected.execute
+          @expected = expected
           @orig = orig
         end
 
@@ -22,7 +22,7 @@ module RSpec
           @actual_is_command = actual.is_a?(Command)
           return @orig.matches?(actual) unless @actual_is_command
 
-          @actual = actual
+          @actual = actual.execute
 
           return false unless @stream == :stdout || @stream == :stderr
 
