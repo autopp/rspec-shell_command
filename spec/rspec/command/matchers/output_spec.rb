@@ -89,6 +89,38 @@ describe 'output matcher' do
       end
     end
 
+    context 'and when given a Command "echo hello"' do
+      let(:command) { RSpec::Command.new('echo hello') }
+
+      context 'and when stdout is expected to output' do
+        it 'matches' do
+          expect(command).to output.to_stdout
+        end
+      end
+
+      context 'and when stderr is expected to output' do
+        it 'dose not match' do
+          expect { expect(command).to output.to_stderr }.to fail
+        end
+      end
+    end
+
+    context 'and when given a Command "echo goodbye >&2"' do
+      let(:command) { RSpec::Command.new('echo goodbye >&2') }
+
+      context 'and when stdout is expected to output' do
+        it 'dose not match' do
+          expect { expect(command).to output.to_stdout }.to fail
+        end
+      end
+
+      context 'and when stderr is expected to output' do
+        it 'matches' do
+          expect(command).to output.to_stderr
+        end
+      end
+    end
+
     context 'and when given block' do
       it 'matches by builtin output matcher' do
         expect { print('hello world') }.to output(/hello/).to_stdout

@@ -24,12 +24,16 @@ module RSpec
 
           return false unless @stream == :stdout || @stream == :stderr
 
-          values_match?(@expected, actual_output)
+          if @expected
+            values_match?(@expected, actual_output)
+          else
+            !actual_output.empty?
+          end
         end
 
         def failure_message
           if @actual_is_command
-            "expect command to output #{@expected.inspect} to #{@stream}"
+            "expect command to #{description}"
           else
             @orig.failure_message
           end
@@ -37,7 +41,7 @@ module RSpec
 
         def failure_message_when_negated
           if @actual_is_command
-            "expect command to not output #{@expected.inspect} to #{@stream}"
+            "expect command to not #{description}"
           else
             @orig.failure_message_when_negated
           end
@@ -60,7 +64,11 @@ module RSpec
         end
 
         def description
-          "output #{description_of(@expected)} to #{@stream}"
+          if @command
+            "output #{description_of(@expected)} to #{@stream}"
+          else
+            "output to #{@stream}"
+          end
         end
 
         private
