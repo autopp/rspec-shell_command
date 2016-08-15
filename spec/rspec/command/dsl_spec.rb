@@ -10,10 +10,6 @@ describe RSpec::Command::DSL do
         expect(subject).to be_a(RSpec::Command)
       end
 
-      it 'has given string as attribute cmd' do
-        expect(subject).to has_attributes(cmd: 'echo hello')
-      end
-
       it 'has not executed yet' do
         expect(subject).not_to be_executed
       end
