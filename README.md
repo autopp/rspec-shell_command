@@ -38,15 +38,15 @@ describe '`echo hello; echo goodbye >&2`' do
     expect(`echo hello; echo goodbye >&2`).to exit_with(0)
   end
 
-  # Check the output of standard output
+  # Check standard output
   # (The output matcher behaves like the builtin output)
   it 'output "hello\n" to stdout' do
     expect(`echo hello; echo goodbye >&2`).to output("hello\n").to_stdout
   end
 
-  # Check the output of standard error
-  it 'output "goodbye\n" to stderr' do
-    expect(`echo hello; echo goodbye >&2`).to output("goodbye\n").to_stderr
+  # Check standard error
+  it 'output a some string to stderr' do
+    expect(`echo hello; echo goodbye >&2`).to output.to_stderr
   end
 end
 
@@ -59,10 +59,10 @@ describe '`echo hello; echo goodbye >&2; exit 2`' do
   # Check the status code using a composing matcher
   it { is_expected.to exit_with(a_value_between(1, 3)) }
 
-  # Check the output of standard output using a Regexp
+  # Check standard output using a Regexp
   it { is_expected.to output(/ell/).to_stdout }
 
-  # Check the output of standard error using a composing matcher
+  # Check standard error using a composing matcher
   it { is_expected.to output(a_string_starting_with('good')).to_stderr }
 end
 ```
