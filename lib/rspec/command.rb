@@ -47,3 +47,4 @@ module RSpec
 end
 
 require 'rspec/command/matchers'
+require 'rspec/command/dsl'
